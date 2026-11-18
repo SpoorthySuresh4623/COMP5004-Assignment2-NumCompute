@@ -231,3 +231,29 @@ Measured using `benchmark/run_benchmarks.py` with a fixed random seed (`42`), av
 | **Softmax** | 100,000 | 32.5353 | 1.5731 | 20.68x |
 
 *Execution environment: Python 3.14.7; NumPy 2.5.4; Windows 11 (10.0.26200); AMD64.*
+
+## Assignment 2.2 – Streaming Decision Tree Framework
+
+This individual extension adds a streaming machine learning framework to the original NumCompute package. It includes a decision tree classifier built from scratch, incremental preprocessing, streaming evaluation metrics, and visualisation tools.
+
+### Features
+- Decision tree classification with Gini or entropy-based splitting.
+- Buffered retraining using `partial_fit()` and a configurable `buffer_size`.
+- Incremental preprocessing, statistics, and evaluation metrics.
+- Streaming pipeline with per-chunk logging.
+- CSV-based streaming demo and visualisations.
+- Unit tests and performance benchmarks.
+
+### Setup and execution
+Run the following commands from the repository root:
+
+```powershell
+py -m pip install numpy matplotlib notebook
+py -m unittest discover -s tests -v
+py benchmark/run_stream_benchmarks.py
+py -m notebook demo/stream_demo.ipynb
+```
+
+The main implementation is located in `numcompute_stream/`. The notebook is available at `demo/stream_demo.ipynb`, and benchmark outputs are stored in `benchmark/stream_results/`.
+
+The framework uses Python, NumPy and matplotlib for its implementation. The notebook requires Jupyter to run.
